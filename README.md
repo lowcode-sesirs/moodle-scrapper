@@ -155,5 +155,5 @@ Este projeto é de uso interno e segue as diretrizes do SESI RS.
 ### Créditos
 
 Feito por Franco F. Wolff
-https://www.linkedin.com/in/ffwolff/
-https://github.com/ffwolff
+- https://www.linkedin.com/in/ffwolff/
+- https://github.com/ffwolff
