@@ -148,6 +148,41 @@ Esse `.env` deve ser incluído no `.gitignore`.
 
 ---
 
+## IMPORTANTE: 
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
+```
+LOGIN_URL=https://seusite.com/login
+USERNAME=seu_usuario
+PASSWORD=sua_senha
+
+COLETA_DESTINO_URL=https://seusite.com/destinos
+COLETA_ORIGEM_URL=https://seusite.com/origens
+```
+
+Onde as variáveis seguem a seguinte lógica:
+
+```
+LOGIN_URL=https://seusite.com/login
+```
+Página de Login
+
+```
+USERNAME=seu_usuario
+PASSWORD=sua_senha
+```
+Login e senha
+
+```
+COLETA_DESTINO_URL=https://seusite.com/destinos
+```
+Define a página inicial onde o script coleta os cursos de destino.
+
+```
+COLETA_ORIGEM_URL=https://seusite.com/origens
+```
+Define a página onde o script coleta os cursos de origem.
+(Nessa etapa filtra-se e captura apenas cursos que seguem padrões específicos, como F1, ED-, etc)
+
 ## Licença
 
 Este projeto é de uso interno e segue as diretrizes do SESI RS.

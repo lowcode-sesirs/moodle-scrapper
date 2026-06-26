@@ -9,6 +9,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from openpyxl import Workbook
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 CHROME_DRIVER_PATH = "chromedriver.exe"
 
@@ -49,18 +53,20 @@ def salvar_excel(nome_arquivo: str, dados: list, colunas: list):
 
 def fazer_login():
     print("[DEBUG] Acessando página de login…")
-    driver.get("SEU_LINK_AQUI") # PÁGINA DE LOGIN
 
-    driver.find_element(By.ID, "username").send_keys("USUARIO_AQUI") #USUÁRIO
-    driver.find_element(By.ID, "password").send_keys("SENHA_AQUI") #SENHA
-    driver.find_element(By.ID, "loginbtn").click() #BOTÃO DE LOGIN
+    driver.get(os.getenv("LOGIN_URL"))
+
+    driver.find_element(By.ID, "username").send_keys(os.getenv("USERNAME"))
+    driver.find_element(By.ID, "password").send_keys(os.getenv("PASSWORD"))
+    driver.find_element(By.ID, "loginbtn").click()
 
     wait.until(EC.presence_of_element_located((By.ID, "page-wrapper")))
     print("Login realizado com sucesso")
 
 def coletar_cursos_destino():
     print("[DEBUG] Iniciando coleta de cursos destino…")
-    driver.get("SEU_LINK_AQUI") #LINK DA PRIMEIRA COLETA
+
+    driver.get(os.getenv("COLETA_DESTINO_URL"))
     dados = []
 
     while True:
@@ -97,7 +103,8 @@ def coletar_cursos_destino():
 
 def coletar_origens():
     print("[DEBUG] Iniciando coleta de cursos origem…")
-    driver.get("SEU_LINK_AQUI")
+
+    driver.get(os.getenv("COLETA_ORIGEM_URL"))
 
     wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "a.aalink")))
     cursos = driver.find_elements(By.CSS_SELECTOR, "a.aalink")
