@@ -51,8 +51,8 @@ def fazer_login():
     print("[DEBUG] Acessando página de login…")
     driver.get("SEU_LINK_AQUI") # PÁGINA DE LOGIN
 
-    driver.find_element(By.ID, "USUARIO_AQUI").send_keys("USUARIO_AQUI") #USUÁRIO
-    driver.find_element(By.ID, "SENHA_AQUI").send_keys("SENHA_AQUI") #SENHA
+    driver.find_element(By.ID, "username").send_keys("USUARIO_AQUI") #USUÁRIO
+    driver.find_element(By.ID, "password").send_keys("SENHA_AQUI") #SENHA
     driver.find_element(By.ID, "loginbtn").click() #BOTÃO DE LOGIN
 
     wait.until(EC.presence_of_element_located((By.ID, "page-wrapper")))
