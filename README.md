@@ -1,5 +1,5 @@
 
-# Python Scraper - Moodle SESI RS
+# Python Scrapper - Moodle SESI RS
 
 Este projeto é um script em Python com Selenium para automatizar a coleta de **cursos de destino e origem** de uma instância Moodle.  
 Os dados extraídos são salvos em **dois arquivos Excel (`.xlsx`)**, com colunas formatadas de acordo com a estrutura exigida para análise ou importação no sistema ASD.
@@ -112,6 +112,16 @@ venv\Scripts\Activate.ps1
 3. Instale as dependências:
 ```
 pip install -r requirements.txt
+```
+
+4. Crie e configure o arquivo .env
+```
+LOGIN_URL=https://seusite.com/login
+USERNAME=seu_usuario
+PASSWORD=sua_senha
+
+COLETA_DESTINO_URL=https://seusite.com/destinos
+COLETA_ORIGEM_URL=https://seusite.com/origens
 ```
 
 ---

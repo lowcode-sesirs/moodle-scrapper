@@ -46,7 +46,19 @@ if exist .env (
     echo [OK] arquivo .env encontrado.
 ) else (
     echo [WARN] arquivo .env nao encontrado.
-    echo Crie um arquivo .env com LOGIN_URL, USERNAME, PASSWORD, etc.
+    echo Criando .env.example...
+
+    (
+        echo LOGIN_URL=https://seusite.com/login
+        echo USERNAME=seu_usuario
+        echo PASSWORD=sua_senha
+        echo.
+        echo COLETA_DESTINO_URL=https://seusite.com/destinos
+        echo COLETA_ORIGEM_URL=https://seusite.com/origens
+    ) > .env.example
+
+    echo [OK] .env.example criado!
+    echo Agora copie .env.example para .env e preencha os dados.
 )
 
 echo ================================
